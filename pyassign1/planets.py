@@ -52,9 +52,7 @@ t6.goto(0,-9.54*r_earth)
 t6.pendown()
 
 for m in range(200):
-    k=20
-    a=0.5
-    b=15
+    b=15 #speed modifier#
     t1.speed(0)
     t2.speed(0)
     t3.speed(0)
