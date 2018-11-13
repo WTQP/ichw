@@ -1,9 +1,6 @@
 import turtle
 import math
 r_earth=30
-list=[0.38,0.52,1.0,1.52,5.20,9.54]
-pos=[(0,-list[0]*r_earth),(0,-list[1]*r_earth),(0,-list[2]*r_earth),
-     (0,-list[3]*r_earth),(0,-list[4]*r_earth),(0,-list[5]*r_earth)]
 t0=turtle.Turtle()
 t0.color('yellow')
 t0.shape('circle')
