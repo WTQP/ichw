@@ -1,6 +1,6 @@
 """planets.py: It could imitate the motions of
                the inner 6 planets of the solar
-               system.(circle orbits, radius 
+               system.(circle orbits, radius
                based on real sizes)
 
 __author__ = "Wangtie"
@@ -10,7 +10,7 @@ __email__  = "1800011811@pku.edu.cn"
 
 import turtle
 import math
-r_earth = 30 #alter this to put the orbits in screen#
+r_earth = 30  # alter this to put the orbits in screen#
 t0 = turtle.Turtle()
 t0.color('yellow')
 t0.shape('circle')
@@ -72,7 +72,7 @@ t6.pendown()
 # saturn #
 
 for m in range(200):
-    b = 15 #speed modifier of circling#
+    b = 15  # speed modifier of circling#
     t1.speed(0)
     t2.speed(0)
     t3.speed(0)
