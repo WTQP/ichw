@@ -10,25 +10,29 @@ __email__  = "1800011811@pku.edu.cn"
 
 
 def tstheng(next):
+    '''检查下一块砖能不能横着铺'''
     global a, c, d
     for k in range(c):
         for m in range(d):
             if qiang[next % a + k + m * a] != 0:
+                # 若有任一块非空，就会冲突。
                 return False
             else:
                 pass
-    return True
+    return True  # 每一块都没问题
 
 
 def tstzong(next):
+    '''检查下一块砖能不能横着铺'''
     global a, c, d
     for k in range(d):
         for m in range(c):
             if qiang[next % a + k + m * a] != 0:
+                # 若有任一块非空，就会冲突。
                 return False
             else:
                 pass
-    return True
+    return True  # 每一块都没有问题
 
 
 def pu(ans, qiang):
@@ -46,29 +50,28 @@ def pu(ans, qiang):
             for i in ans1:
                 qiang[i] = 1
             ans.append(ans1.copy())
-            print(ans1)
-            print(qiang)
-            print('横')
             pu(ans, qiang)
-            aa = ans.pop()
+            # 由于每个pu函数最后都会把自己铺好的瓷砖拆下来
+            # 因此回溯到这里，说明在next之后位置的方块的瓷砖都是被拆下来了。
+            # 为了尝试竖着铺，因此需要把铺好的瓷砖先拆下来
+            aa = ans.pop()  # 从答案总集中去除上一块
             for i in aa:
-                qiang[i] = 0
+                qiang[i] = 0  # 从墙上取下上一块
         if tstzong(next):
             ans1 = [(next % a + k + m * a) for k in range(d)
                     for m in range(c)]
             for i in ans1:
                 qiang[i] = 1
             ans.append(ans1.copy())
-            print(ans1)
-            print(qiang)
-            print('竖')
             pu(ans, qiang)
-            aa = ans.pop()
+            # 由于每个pu函数最后都会把自己铺好的瓷砖拆下来
+            # 因此回溯到这里，说明在next之后位置的方块的瓷砖都是被拆下来了。
+            # 为了尝试竖着铺，因此需要把铺好的瓷砖先拆下来
+            aa = ans.pop()  # 从答案总集中去除上一块
             for i in aa:
-                qiang[i] = 0
-    print(ans)
-    print(qiang)
-    return ans
+                qiang[i] = 0  # 从墙上取下上一块
+    # 运行到这里说明两种方法都尝试过了，回溯到上一个瓷砖尝试铺法
+    return
 
 
 if '__name__' == '__main__':
