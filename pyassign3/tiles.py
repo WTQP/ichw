@@ -54,8 +54,8 @@ def pu(ans, qiang):
             # 由于每个pu函数最后都会把自己铺好的瓷砖拆下来
             # 因此回溯到这里，说明在next之后位置的方块的瓷砖都是被拆下来了。
             # 为了尝试竖着铺，因此需要把铺好的瓷砖先拆下来
-            aa = ans.pop()  # 从答案总集中去除上一块
-            for i in aa:
+            lastans = ans.pop()  # 从答案总集中去除上一块
+            for i in lastans:
                 qiang[i] = 0  # 从墙上取下上一块
         if tstzong(next):
             ans1 = [(next % a + k + m * a) for k in range(d)
@@ -67,8 +67,8 @@ def pu(ans, qiang):
             # 由于每个pu函数最后都会把自己铺好的瓷砖拆下来
             # 因此回溯到这里，说明在next之后位置的方块的瓷砖都是被拆下来了。
             # 为了尝试竖着铺，因此需要把铺好的瓷砖先拆下来
-            aa = ans.pop()  # 从答案总集中去除上一块
-            for i in aa:
+            lastans = ans.pop()  # 从答案总集中去除上一块
+            for i in lastans:
                 qiang[i] = 0  # 从墙上取下上一块
     # 运行到这里说明两种方法都尝试过了，回溯到上一个瓷砖尝试铺法
     return
