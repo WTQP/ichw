@@ -52,7 +52,7 @@ def pu(ans, qiang):
     else:
         next = qiang.index(0)
         print(next)
-        if tstheng(next):
+        if tstheng(next， qiang):
             ans = []
             ans1 = [(next % a + k + m * a) for k in range(c)
                     for m in range(d)]
@@ -66,7 +66,7 @@ def pu(ans, qiang):
             lastans = ans.pop()  # 从答案总集中去除上一块
             for i in lastans:
                 qiang[i] = 0  # 从墙上取下上一块
-        if tstzong(next):
+        if tstzong(next， qiang):
             ans1 = [(next % a + k + m * a) for k in range(d)
                     for m in range(c)]
             for i in ans1:
