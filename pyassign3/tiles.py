@@ -32,13 +32,13 @@ def tstzong(next, qiang):
     global a, c, d
     for k in range(d):
         if qiang[next % a + k] != 0:
-            print('falseh')
+            print('falsez')
             return False
         else:
             for m in range(c):
                 if qiang[next % a + k + m * a] != 0:
                     # 若有任一块非空，就会冲突。
-                    print('falseh')
+                    print('falsez')
                     return False
                 else:
                     pass
@@ -51,7 +51,6 @@ def pu(ans, qiang):
         print('done')
     else:
         next = qiang.index(0)
-        print(next)
         if tstheng(next， qiang):
             ans = []
             ans1 = [(next % a + k + m * a) for k in range(c)
