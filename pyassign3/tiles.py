@@ -9,31 +9,40 @@ __email__  = "1800011811@pku.edu.cn"
 """
 
 
-def tstheng(next):
+def tstheng(next, qiang):
     '''检查下一块砖能不能横着铺'''
     global a, c, d
     for k in range(c):
-        for m in range(d):
-            if qiang[next % a + k + m * a] != 0:
-                # 若有任一块非空，就会冲突。
-                return False
-            else:
-                pass
-    return True  # 每一块都没问题
+        if qiang[next % a + k] != 0:
+            print('falseh')
+            return False
+        else:
+            for m in range(d):
+                if qiang[next % a + k + m * a] != 0:
+                    # 若有任一块非空，就会冲突。
+                    print('falseh')
+                    return False
+                else:
+                    pass
+    return True  # 每块儿都没问题
 
 
-def tstzong(next):
+def tstzong(next, qiang):
     '''检查下一块砖能不能横着铺'''
     global a, c, d
     for k in range(d):
-        for m in range(c):
-            if qiang[next % a + k + m * a] != 0:
-                # 若有任一块非空，就会冲突。
-                return False
-            else:
-                pass
+        if qiang[next % a + k] != 0:
+            print('falseh')
+            return False
+        else:
+            for m in range(c):
+                if qiang[next % a + k + m * a] != 0:
+                    # 若有任一块非空，就会冲突。
+                    print('falseh')
+                    return False
+                else:
+                    pass
     return True  # 每一块都没有问题
-
 
 def pu(ans, qiang):
     global a, b, c, d
