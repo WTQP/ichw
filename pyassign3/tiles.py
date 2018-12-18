@@ -1,12 +1,15 @@
 """Tiles.py: 设计目标：对任意给定长方形墙面和长方形砖块，输出合理的用砖块铺满这个墙壁
              的方法，并用 Turtle 模块实现可视化。
 
+
 __author__ = "Wangtie"
 __pkuid__  = "1800011811"
 __email__  = "1800011811@pku.edu.cn"
 """
 
 
+import turtle
+import random
 a = int(input('墙的长度是多少？'))
 b = int(input('墙的宽度是多少？'))
 c = int(input('砖的长度是多少？'))
@@ -16,6 +19,8 @@ qiangf = []
 for j in range(a * b):
     qiang.append(0)  # 初始化墙壁
     qiangf.append(1)  # 设置对照的贴满墙壁
+ans_count = 0
+all_ans = []
 
 
 def tstheng(next, qiang):
@@ -55,11 +60,23 @@ def tstzong(next, qiang):
 
 
 def pu(ans, qiang):
-    global a, b, c, d, qiangf
-    if qiang == qiangf:
-        print('done')
-        print(ans)
-        return ans
+    global a, b, c, d, qiangf, ans_count, all_ans
+    if qiang == qiangf:  # 证明铺满了
+        if all_ans == []:  # 如空，则填入
+            ans_count = ans_count + 1
+            print('Answer ' + str(ans_count))
+            print(ans)
+            all_ans.append(ans.copy())
+            return
+        else:
+            if ans != all_ans[ans_count - 1]:  # 如非空，则判断是否与前一个相同
+                ans_count = ans_count + 1
+                print('Answer ' + str(ans_count))
+                print(ans)
+                all_ans.append(ans.copy())
+                return
+            if ans == all_ans[ans_count - 1]:
+                pass  # 判断下一个解法是否与前一个相同，简单规避1 * 1的砖
     else:
         next = qiang.index(0)
         if tstzong(next, qiang):
@@ -93,11 +110,14 @@ def pu(ans, qiang):
 
 def main():
     ''' main module '''
+    global a, b, c, d, qiang, qiangf, ans_count
     if (a * b) % (c * d) != 0 or (c > a and c > b) or (d > a and d > b)\
        or a == 0 or b == 0 or c == 0 or d == 0:
         print('这组数据铺不了哟~')
     else:
         pu([], qiang)
+        print(str(ans_count) + ' answer(s) in total.')
+        print(all_ans)
 
 
 if __name__ == '__main__':
