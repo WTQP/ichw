@@ -1,8 +1,6 @@
 """Tiles.py: 设计目标：对任意给定长方形墙面和长方形砖块，输出合理的用砖块铺满这个墙壁
              的方法，并用 Turtle 模块实现可视化。
 
-             但目前尚未完成，目前程序仅能尝试出特定的一种解法，而且无法有效输出。
-
 __author__ = "Wangtie"
 __pkuid__  = "1800011811"
 __email__  = "1800011811@pku.edu.cn"
@@ -99,7 +97,7 @@ def main():
        or a == 0 or b == 0 or c == 0 or d == 0:
         print('这组数据铺不了哟~')
     else:
-            pu([], qiang)
+        pu([], qiang)
 
 
 if __name__ == '__main__':
